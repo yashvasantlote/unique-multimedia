@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Multimedia | Yash Vasant Lote</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #fff;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ff9800;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #fff;
+            margin-left: 25px;
+            text-decoration: none;
+            transition: .3s;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ff9800;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 120px 8% 60px 8%;
+            background: linear-gradient(135deg, #000, #1a1a1a);
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero h3 {
+            color: #ff9800;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #ddd;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            margin-bottom: 35px;
+            line-height: 1.8;
+            color: #bbb;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: #ff9800;
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 600;
+            transition: .3s;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #ff9800;
+            color: #ff9800;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: #ff9800;
+            color: #fff;
+        }
+
+        .hero-img img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 0 35px rgba(255,152,0,.3);
+            border: 2px solid rgba(255, 152, 0, 0.2);
+        }
+
+        /* Universal Section Styling */
+        section {
+            padding: 100px 8%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 15px;
+            color: #ff9800;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #bbb;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        /* About Section */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 60px;
+            justify-content: center;
+        }
+
+        .about-img img {
+            width: 320px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255,152,0,.2);
+        }
+
+        .about-content {
+            max-width: 600px;
+        }
+
+        .about-content h2 {
+            margin-bottom: 20px;
+            color: #ff9800;
+            font-size: 32px;
+        }
+
+        .about-content p {
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .skills-container {
+            margin-top: 20px;
+        }
+
+        .skill-bar {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        progress {
+            width: 100%;
+            height: 12px;
+            accent-color: #ff9800;
+        }
+
+        /* Cards Layout (Services & Portfolio) */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #161616;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: .4s ease;
+            border: 1px solid #222;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #ff9800;
+            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.1);
+        }
+
+        .card i {
+            font-size: 45px;
+            color: #ff9800;
+            margin-bottom: 25px;
+        }
+
+        .card h2, .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Portfolio Grid Override */
+        .portfolio-card {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            border-radius: 15px;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-card h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        /* Achievements Section */
+        .achieve-card h1 {
+            font-size: 50px;
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+
+        /* Form Styling */
+        .booking-container {
+            max-width: 700px;
+            margin: auto;
+            background: #161616;
+            padding: 45px;
+            border-radius: 25px;
+            border: 1px solid #222;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff9800;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px;
+            background: #0d0d0d;
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            transition: .3s;
+        }
+
+        .form-control:focus {
+            border-color: #ff9800;
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: #ff9800;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Links */
+        .contact-card a {
+            color: #fff;
+            text-decoration: none;
+            transition: .3s;
+        }
+        .contact-card a:hover {
+            color: #ff9800;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 40px 20px;
+            text-align: center;
+            color: #888;
+            border-top: 1px solid #111;
+        }
+
+        footer h2 {
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media(max-width:900px){
+            header {
+                padding: 15px 5%;
+            }
+            nav {
+                display: none; /* सोप्या डिझाइनसाठी किंवा मोबाईल मेन्यूसाठी */
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 140px;
+            }
+            .hero-img img {
+                width: 280px;
+                height: 280px;
+                margin-bottom: 40px;
+            }
+            .hero h1 {
+                font-size: 38px;
+            }
+            .btn {
+                margin: 10px 5px;
+            }
+            section {
+                padding: 70px 5%;
+            }
+            .booking-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">UNIQUE MULTIMEDIA</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#booking">Book Now</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h3>WELCOME TO</h3>
+            <h1>Unique Multimedia</h1>
+            <h2>Creative Graphic Designer</h2>
+            <p>Professional Logo Design, Social Media Posts, Wedding Cards, Flex, Banner, Branding, Photo Editing & Video Editing. आम्ही तुमच्या व्यवसायाला एक नवी आणि आकर्षक ओळख मिळवून देतो.</p>
+            <a href="#booking" class="btn">Book Now (बुकिंग करा)</a>
+            <a href="#portfolio" class="btn btn-outline">View Work (काम पहा)</a>
+        </div>
+        <div class="hero-img">
+            <img src="yash.jpg.jpeg" alt="Yash Lote" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60';">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="title">About Me (माझ्याबद्दल)</h2>
+        <p class="subtitle">परिचय आणि कौशल्ये</p>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="yash.jpg.jpeg" alt="Yash Vasant Lote" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60';">
+            </div>
+            <div class="about-content">
+                <h2>Yash Vasant Lote</h2>
+                <p>Welcome to <b>Unique Multimedia</b>. मी महाराष्ट्रातील एक क्रिएटिव्ह ग्राफिक्स डिझायनर आहे. मागील १ वर्षांहून अधिक काळ मी विविध व्यवसायांसाठी प्रिमियम क्वालिटी लोगो, सोशल मीडिया पोस्ट, राजकीय बॅनर्स आणि व्हिडिओ एडिटिंगचे काम करत आहे. आमचे उद्दिष्ट ग्राहकांच्या गरजेनुसार उत्कृष्ट डिझाइन तयार करणे हे आहे.</p>
+                
+                <div class="skills-container">
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Graphic Design</span><span>95%</span></div>
+                        <progress value="95" max="100"></progress>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Branding</span><span>90%</span></div>
+                        <progress value="90" max="100"></progress>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Social Media Design</span><span>98%</span></div>
+                        <progress value="98" max="100"></progress>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Video Editing</span><span>80%</span></div>
+                        <progress value="80" max="100"></progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="title">Our Services</h2>
+        <p class="subtitle">आम्ही पुरवत असलेल्या दर्जेदार सेवा</p>
+        <div class="cards">
+            <div class="card"><i class="fas fa-pen-ruler"></i><h2>Logo Design</h2><p>Professional Business Logo Design.</p></div>
+            <div class="card"><i class="fas fa-image"></i><h2>Social Media Posts</h2><p>Creative Instagram & Facebook Designs.</p></div>
+            <div class="card"><i class="fas fa-print"></i><h2>Flex & Banner</h2><p>Professional Banner Design.</p></div>
+            <div class="card"><i class="fas fa-ring"></i><h2>Wedding Cards</h2><p>Modern Invitation Designs.</p></div>
+            <div class="card"><i class="fas fa-camera-retro"></i><h2>Photo Editing</h2><p>Professional Photo Retouching.</p></div>
+            <div class="card"><i class="fas fa-video"></i><h2>Video Editing</h2><p>Professional Video Editing Service.</p></div>
+            <div class="card"><i class="fas fa-star"></i><h2>Festival Posters</h2><p>Creative Festival Greetings.</p></div>
+            <div class="card"><i class="fas fa-users"></i><h2>Political Design</h2><p>Political Campaign Posters & Banners.</p></div>
+            <div class="card"><i class="fas fa-building"></i><h2>Business Branding</h2><p>Complete Branding Solution.</p></div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="title">My Portfolio</h2>
+        <p class="subtitle">काही अलीकडील उत्कृष्ट डिझाईन्स</p>
+        <div class="cards">
+            <div class="card portfolio-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAlPbIEoCWRewrItV3qXVJPTw1GQdwwvywSVK6hxLyecGP_zr1RFNOr4sD&s=10">
+                <h3>Political Banner</h3>
+            </div>
+            <div class="card portfolio-card">
+                <img src="https://www.marathidesigns.com/storage/bhavpurna-shradhanjali-10x12-print-banner-design-cdr-file-for-print-shops-2026.webp">
+                <h3>Shradhanjali Banner</h3>
+            </div>
+            <div class="card portfolio-card">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/6c713b187004301.65800bc7bf6b0.jpg">
+                <h3>Pavati Book Design</h3>
+            </div>
+            <div class="card portfolio-card">
+                <img src="https://i.pinimg.com/736x/dc/08/19/dc0819c12b6d7b12f07ba7692df48718.jpg">
+                <h3>Wari Timetable</h3>
+            </div>
+            <div class="card portfolio-card">
+                <img src="https://pbs.twimg.com/media/D9zVjVuUIAEfwA5.jpg">
+                <h3>Palkhi Sohala Banner</h3>
+            </div>
+            <div class="card portfolio-card">
+                <img src="https://static.vecteezy.com/system/resources/previews/036/242/687/non_2x/the-carnival-festival-background-for-banner-festive-and-poster-design-vector.jpg">
+                <h3>Festival Poster</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2 class="title">Our Achievements</h2>
+        <p class="subtitle">आमची कामगिरी</p>
+        <div class="cards">
+            <div class="card achieve-card"><h1>200+</h1><p>Projects Completed</p></div>
+            <div class="card achieve-card"><h1>200+</h1><p>Happy Clients</p></div>
+            <div class="card achieve-card"><h1>1+</h1><p>Years Experience</p></div>
+            <div class="card achieve-card"><h1>24×7</h1><p>Customer Support</p></div>
+        </div>
+    </section>
+
+    <!-- Booking Section with WhatsApp Integration -->
+    <section id="booking">
+        <h2 class="title">Book Your Project</h2>
+        <p class="subtitle">खालील फॉर्म भरा आणि ऑर्डर थेट व्हॉट्सॲपवर पाठवा</p>
+        <div class="booking-container">
+            <form onsubmit="sendWhatsApp(); return false;">
+                <div class="form-group">
+                    <label for="name">Your Name (तुमचे नाव):</label>
+                    <input type="text" id="name" class="form-control" placeholder="उदा. राहुल पाटील" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number (मोबाईल नंबर):</label>
+                    <input type="tel" id="mobile" class="form-control" placeholder="उदा. 9876543210" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Select Service (सेवा निवडा):</label>
+                    <select id="service" class="form-control">
+                        <option>Logo Design</option>
+                        <option>Social Media Design</option>
+                        <option>Wedding Card</option>
+                        <option>Banner Design</option>
+                        <option>Festival Poster</option>
+                        <option>Political Design</option>
+                        <option>Photo Editing</option>
+                        <option>Video Editing</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details (कामाची माहिती):</label>
+                    <textarea id="message" class="form-control" placeholder="तुम्हाला डिझाईनमध्ये काय हवे आहे ते थोडक्यात लिहा..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fab fa-whatsapp"></i> Book On WhatsApp (ऑर्डर पाठवा)
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="title">Contact Us</h2>
+        <p class="subtitle">संपर्क साधा</p>
+        <div class="cards">
+            <div class="card contact-card"><i class="fas fa-user"></i><h2>Owner</h2><p>Yash Vasant Lote</p></div>
+            <div class="card contact-card"><i class="fas fa-phone"></i><h2>Call</h2><p><a href="tel:+918237909907">8237909907</a></p></div>
+            <div class="card contact-card"><i class="fas fa-envelope"></i><h2>Email</h2><p><a href="mailto:yashlote001@gmail.com">yashlote001@gmail.com</a></p></div>
+            <div class="card contact-card"><i class="fab fa-whatsapp"></i><h2>WhatsApp</h2><p><a href="https://wa.me/918237909907" target="_blank">Chat Now</a></p></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2>Unique Multimedia</h2>
+        <p>Creative Graphic Designer</p>
+        <br>
+        <p>📞 8237909907 | 📧 yashlote001@gmail.com</p>
+        <br>
+        <p>© 2026 Unique Multimedia. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Animations and WhatsApp Redirect -->
+    <script>
+        function sendWhatsApp() {
+            let name = document.getElementById("name").value;
+            let mobile = document.getElementById("mobile").value;
+            let service = document.getElementById("service").value;
+            let message = document.getElementById("message").value;
+
+            let whatsappNumber = "918237909907";
+
+            // मेसेज फॉरमॅट जो तुमच्या व्हॉट्सॲपवर दिसेल
+            let text = "*नवीन ऑर्डर बुकिंग (Unique Multimedia)*%0A%0A" +
+                       "*नाव:* " + encodeURIComponent(name) + "%0A" +
+                       "*मोबाईल नंबर:* " + encodeURIComponent(mobile) + "%0A" +
+                       "*निवडलेली सेवा:* " + encodeURIComponent(service) + "%0A" +
+                       "*कामाचा तपशील:* " + encodeURIComponent(message);
+
+            window.open("https://wa.me/" + whatsappNumber + "?text=" + text, "_blank");
+        }
+
+        // Card Animations on Scroll
+        const cards = document.querySelectorAll(".card");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0px)";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(40px)";
+            card.style.transition = ".6s ease-out";
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
